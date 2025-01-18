@@ -1,6 +1,8 @@
 package com.transit.train.dto;
 
 import lombok.Getter;
+import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericRecord;
 
 @Getter
 public class TrainDto {
@@ -49,7 +51,7 @@ public class TrainDto {
 
     private String btrainSttus;
 
-    private String barvlDt;
+    private Integer barvlDt;
 
     private String btrainNo;
 
@@ -63,7 +65,44 @@ public class TrainDto {
 
     private String arvlMsg3;
 
-    private String arvlCd;
+    private Integer arvlCd;
 
-    private String lstcarAt;
+    private Integer lstcarAt;
+
+    public SubwayTrainData toSubwayTrainData() {
+        return SubwayTrainData
+                .newBuilder()
+                .setBeginRow(beginRow)
+                .setEndRow(endRow)
+                .setCurPage(curPage)
+                .setPageRow(pageRow)
+                .setTotalCount(totalCount)
+                .setRowNum(rowNum)
+                .setSelectedCount(selectedCount)
+                .setSubwayId(subwayId)
+                .setSubwayNm(subwayNm)
+                .setUpdnLine(updnLine)
+                .setTrainLineNm(trainLineNm)
+                .setSubwayHeading(subwayHeading)
+                .setStatnFid(statnFid)
+                .setStatnTid(statnTid)
+                .setStatnId(statnId)
+                .setStatnNm(statnNm)
+                .setTrainCo(trainCo)
+                .setTrnsitCo(trainCo)
+                .setOrdkey(ordkey)
+                .setSubwayList(subwayList)
+                .setStatnList(statnList)
+                .setBtrainSttus(btrainSttus)
+                .setBarvlDt(barvlDt)
+                .setBtrainNo(btrainNo)
+                .setBstatnId(bstatnId)
+                .setBstatnNm(bstatnNm)
+                .setRecptnDt(recptnDt)
+                .setArvlMsg2(arvlMsg2)
+                .setArvlMsg3(arvlMsg3)
+                .setArvlCd(arvlCd)
+                .setLstcarAt(lstcarAt)
+                .build();
+    }
 }
